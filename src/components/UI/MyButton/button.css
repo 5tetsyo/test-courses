@@ -1,0 +1,11 @@
+.but {
+    width: 120px;
+    height: 30px;
+    background-color: rgb(80, 80, 255);
+    border: 1px solid white;
+    font-size: 14px;
+    color: white;
+    cursor: pointer;
+    border-radius: 15px;
+    margin: 15px;
+}

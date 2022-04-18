@@ -1,0 +1,8 @@
+.bank_select {
+    height: 30px;
+    background-color: rgb(80, 80, 255);
+    border: 1px solid white;
+    color: white;
+    border-radius: 15px;
+    padding: 5px;
+}
