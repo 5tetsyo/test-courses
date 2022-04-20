@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import MyButton from '../MyButton/MyButton';
 import './modal.css'
 
-const MyModal = ({active, setActive, addBank}) => {
+const MyModal = ({active, setActive, choose, callbacks}) => {
+    const {toAdd, toEdit} = callbacks
     const template = {name: null, intRate: null, maxLoan: null, minPay: null, loadTerm: null}
     const [newBank, setNewBank] = useState(template)
     return (
@@ -23,7 +24,11 @@ const MyModal = ({active, setActive, addBank}) => {
                         <input type="text" name="" id="" onChange={(e) => setNewBank({...newBank, loadTerm: e.target.value})}/>
                         <MyButton onClick={(e) => {
                             e.preventDefault()
-                            addBank(newBank)
+                            if (choose) {
+                                toEdit(newBank)
+                            } else {
+                              toAdd(newBank)
+                            }
                             setNewBank(template)
                             setActive(false)
                         }}>Add</MyButton>

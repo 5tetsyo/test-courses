@@ -16,12 +16,22 @@ input {
     align-items: center;
 }
 .bank_item {
-    text-align: center;
-    width: 500px;
+    width: 600px;
     margin: 5px;
     padding: 10px;
     border: 2px solid rgb(80, 80, 255);
     border-radius: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.bank_item > .unAndEdit > div{
+    width: 100px;
+    text-decoration: underline;
+    color: rgb(80, 80, 255);
+    margin: 15px;
+    cursor: pointer;
 }
 .calc_page {
     text-align: center;   

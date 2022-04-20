@@ -65,7 +65,7 @@ const defaultBanks = [{
 
 export const localBanks = (banks) => {
         localStorage.setItem(`Bank`, JSON.stringify(defaultBanks));
-        if (banks) {
+        if (banks !== null) {
             localStorage.setItem(`Bank`, JSON.stringify(banks));
         };
         return banks;
@@ -73,6 +73,19 @@ export const localBanks = (banks) => {
 export const addBank = (banks, newBank, setBank) => {
     setBank([...banks, {...newBank, id: banks.length + 1}]);
 };
+export const deleteBank = (banks, bank, setBank) => {
+    setBank(banks.filter(p => p.id !== bank.id));
+};
+export const changeBank = (bank, editedBank, banks, setBank) => {
+    setBank([...banks], 
+        banks[banks.indexOf(bank)].name = editedBank.name, 
+        banks[banks.indexOf(bank)].intRate = editedBank.intRate, 
+        banks[banks.indexOf(bank)].maxLoan = editedBank.maxLoan, 
+        banks[banks.indexOf(bank)].minPay = editedBank.minPay, 
+        banks[banks.indexOf(bank)].loadTerm = editedBank.loadTerm
+    )
+};
+
 
 export const calculate = (interestRate, minPay, initialLoad, loadTerm) => {
     if (interestRate && minPay && initialLoad && loadTerm) {

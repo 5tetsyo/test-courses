@@ -15,11 +15,11 @@ const CalcPage = () => {
     }, [])
     return (
         <div className='calc_page'>
-            <input type="text" onChange={(e) => onChange(e)}/>
-            <MySelect callback={setUsedBank} banks={banks}/>
+            <input placeholder='Choose bank and input load' type="text" onChange={(e) => onChange(e)}/>
+            <MySelect bank = {usedBank} callback={setUsedBank} banks={banks}/>
             <MyButton 
                 onClick={() => setMonthPayment(calculate(Number(usedBank.intRate), Number(usedBank.minPay), Number(initialLoad), Number(usedBank.loadTerm)))}>Calc</MyButton>
-            <div className='mp'>{monthPayment ? `${monthPayment}$` : 'Incorrect value!' }</div>
+            <div className='mp'>{monthPayment === undefined || isNaN(monthPayment) ? 'Input correct value!' : `${monthPayment}$` }</div>
         </div>
     );
 }
